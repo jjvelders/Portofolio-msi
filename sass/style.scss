@@ -1,0 +1,16 @@
+// Customizing Bootstrap variables before importing
+$primary:                           #ff5733;
+$font-size-base:                    1.1rem;
+$white:                             #ffffff;
+$orange:                             #ff7300;
+
+$navbar-dark-color:                 rgba($white, .55);
+$navbar-dark-brand-color:           rgba($white, 1);
+$navbar-dark-brand-hover-color:     rgba($white, 1);;
+$navbar-dark-active-color:          rgba($orange, .85);
+$navbar-dark-hover-color:           rgba($orange, .65);
+
+
+// Import Bootstrap and your own styles
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import 'custom';  // Your custom styles
