@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smart Connection</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--  <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    
+      <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Smart Industry</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link"  href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="smartMe.html">Smart Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="smartBusiness.html">Smart Bussiness</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="smartTech.html">Smart Technology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="smartConnection.html">Smart Connection</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="smartProject.html">Smart Project</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div style="height: 20px;"></div>
+
+    <div class="container">     
+
+      <!-- main content -->
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Smart Connection</h1>
+            <p>
+              In dit vak leren we verschillende aspecten van code ontwikkeling:
+            </p>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fa-solid fa-code"></i></span>Programmeren</li>
+              <li><span class="fa-li"><i class="fa-solid fa-globe"></i></span>Bouwen van een website</li>
+              <li><span class="fa-li"><i class="fa-solid fa-database"></i></span>Werken met een database</li>
+              <li><span class="fa-li"><i class="fa-solid fa-gauge-high"></i></span>Ontwerpen van een dashboard</li>
+              <li><span class="fa-li"><i class="fa-solid fa-microchip"></i></span>Machine learing</li>
+            </ul>
+            <p>
+              Deze webpagina is ook onderdeel van dit vak. Gebruik maken van github actions is voor mij een nieuwe ervaring.
+              Dit was een klein beetje priegelen maar was met de bestaande documentatie goed te doen.
+            </p>
+            <h1>Artificial Intelligence</h1>
+            Ik ben al vrij bekend met dit onderwerp. De verschillende architecturen het gebruik van tokens waardoor LLM modellen moeite hebben met 
+            het uitrekenen van het aantal letters in een woord is voor mij ook bekend.
+
+            De docent ging in op het concept van vectorspace en ontologie, deze aspecten zijn nieuw voor mij en geeft me een stuk beter begrip 
+            hoe de modellen onderligend werken. <br>
+            Deze les heeft mij voornamelijk een iets diepere begrip gegeven van hoe AI technieken werken, 
+            voor mij zat hier een grote overlap met mijn profiel en niet alleen mijn studie.
+
+            <h1>API</h1>
+            Hieronder heb ik twee API calls gemaakt. Dit is voor mij gesneden koek maar dit in javascript doen was nog even een puzzeltje.
+            
+            <div style="
+                  width: 400px;
+                  height: 400px;">
+              <h2>Nasa API</h2>
+              <p>NASA's Astronomy Picture of the Day</p>
+              <div id="targetDiv"></div>
+              <script>
+                const baseUrl = 'https://api.nasa.gov/planetary/apod?api_key=';
+                const apiKeyNasa = "MRX4luH3Gzo8eLcdSKeXXbv4Kk4HcLctC1BQpwzm";
+              
+                const currentDate = new Date().toISOString().slice(0, 10);
+              
+                const imageSection = `
+                      <img id="apodImage" src="" alt="Failed to load"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"
+                      >`;
+
+                const targetDiv = document.getElementById("targetDiv");
+                targetDiv.innerHTML = imageSection;
+                              
+                async function fetchData() {
+                  try {
+                    const response = await fetch(baseUrl + apiKeyNasa);
+                    const data = await response.json();
+              
+                    // Update the image and link with fetched data
+                    if (data && data.url) {
+                      document.getElementById("apodImage").src = data.url;
+                      //document.getElementById("hdimg").href = data.hdurl || data.url;
+                    } else {
+                      console.error("Invalid data received from NASA API");
+                    }
+                  } catch (error) {
+                    console.error("Error fetching data from NASA API:", error);
+                  }
+                }
+              
+                // Fetch and display the data
+                fetchData();
+              </script>
+            </div>
+
+            <h1>API 2</h1>
+            <div id="weather"></div>
+            <script>
+              const apiKeyWeather = '0da4f2190d6c48fa8d5e4b92925ab0ef';
+              const city = 'Nijmegen'; 
+              const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyWeather}&units=metric`;
+      
+              async function getWeather() {
+                  try {
+                      const response = await fetch(apiURL);
+                      const data = await response.json();
+                      
+                      // Check if the city is found
+                      if (data.cod === 200) {
+                          const weatherDiv = document.getElementById('weather');
+                          const temp = data.main.temp;
+                          const description = data.weather[0].description;
+                          const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+      
+                          weatherDiv.innerHTML = `
+                              <h2>Weather in ${city}</h2>
+                              <p><strong>Temperature:</strong> ${temp} °C</p>
+                              <p><strong>Condition:</strong> ${description}</p>
+                              <img src="${icon}" alt="Weather icon">
+                          `;
+                      } else {
+                          document.getElementById('weather').innerHTML = `<p>City not found!</p>`;
+                      }
+                  } catch (error) {
+                      document.getElementById('weather').innerHTML = `<p>Error fetching weather data.</p>`;
+                      console.error(error);
+                  }
+              }
+      
+              // Call the function to get weather data
+              getWeather();
+          </script>
+          <h1>Eindoordeel</h1>
+          <p>Dit vak heeft mij niet veel kunnen leren behalve wat details over aspecten waar een al een redelijk goed begrip over had.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
