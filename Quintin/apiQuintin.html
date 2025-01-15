@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spiQuintin</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styleQuintin.css">
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body onload="document.body.style.opacity='1'">
+    <div class="hero">
+        <div class="nav">
+            <div class="logo">
+                <h2><a href="WebsiteQuintinMeurs.html">Homepage Website Quintin Meurs</a></h2>
+            </div>
+            <div class="link">
+                <ul class="linkjes">
+                    <li><a href="ContactgegevensQuintinMeurs.html"> Contactgegvens</a></li>
+                    <li><a href="BezoekenQuintinMeurs.html"> Bezoeken</a></li>
+                    <li><a href="APIQuintinMeurs.html.html">API's</a></li>
+                    <!--<li><a href="#projects">Projects</a></li>-->
+                    <!--<li><a href="#skills">Skills</a></li>-->
+                    <!--<li><a href="#contact">Contact</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-container">
+        <div class="content-container">
+            <h2>Welkom op de API pagina van Quintin Meurs, </h2>
+
+        </div>
+    </div>
+    <!-- NASA APOD Panel -->
+    <div class="panel">
+        <h1>Space Picture of the Day</h1>
+        <div class="apod-container">
+            <h2 id="title"></h2>
+            <img id="apodImage" src="" alt="Astronomy Picture of the Day" class="apod-image">
+            <p id="explanation" class="apod-text"></p>
+        </div>
+        <script>
+            async function getAPOD() {
+                const nasaApiKey = 'l7AfWhUqUhHDz9K8h6ZgOCOP1q5BeQhbC8D4QNlY';
+
+                try {
+                    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}`);
+                    const data = await response.json();
+
+                    document.getElementById('title').textContent = data.title;
+                    if (data.media_type === 'image') {
+                        document.getElementById('apodImage').src = data.url;
+                        document.getElementById('apodImage').style.display = 'block';
+                    } else {
+                        document.getElementById('apodImage').style.display = 'none';
+                    }
+                    document.getElementById('explanation').textContent = data.explanation;
+                } catch (error) {
+                    document.querySelector('.apod-container').innerHTML = '<p>Error loading APOD data</p>';
+                }
+            }
+
+            // Uncomment after adding your API key 9f2774e640msh63cf9a54e782245p11403bjsn2993bcc8fd0f
+            getAPOD();
+        </script>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Quintin Meurs. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

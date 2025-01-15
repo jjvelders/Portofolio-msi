@@ -1,0 +1,136 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Navigation styles */
+.hero {
+    background: #f8f9fa;
+    padding: 1rem 0;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.linkjes {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.linkjes a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.linkjes a:hover {
+    color: #007bff;
+}
+
+.active {
+    color: #007bff !important;
+}
+
+/* Content container styles */
+.scroll-container {
+    overflow-x: auto;
+    padding: 2rem;
+}
+
+.content-container {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.panel {
+    min-width: 300px;
+    max-width: 500px;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.panel h1 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.project-image {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Weather widget styles */
+.weather-widget {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .linkjes {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+/* APOD styles */
+.apod-container {
+    margin-top: 1rem;
+}
+
+/* NASA Image styles */
+.apod-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 1rem 0;
+    width: 300px; /* Set the desired width */
+}
+
+/*NASA text styles */
+.apod-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    margin-top: 2rem;
+}
