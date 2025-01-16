@@ -30,6 +30,17 @@
             </div>
         </div>
 
+        <audio id="background-audio" autoplay loop>
+            <source src="img/Fluffing_a_Duck_-_Background_Music_HD_128kbps.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+
+        <script>
+            // Set the initial volume to 50% (or any value between 0 and 1)
+            const audio = document.getElementById('background-audio');
+            audio.volume = 0.3; // 50% volume
+        </script>
+
         <div class="main">
         <!--<img src="img/koen.png" alt="men" class="men"-->
             <div class="main-detil">
@@ -40,7 +51,6 @@
                 <div class="btn">
                     <!--<button type="submit">Download mijn CV</button>-->
                 </div>
-
                 <div class="social">
                     <a href=https://github.com/Drkoen><i class='bx bxl-github'></i></a>
                     <a href=https://www.linkedin.com/in/koen-paulusma-72b243170><i class='bx bxl-linkedin logo'></i></a>
